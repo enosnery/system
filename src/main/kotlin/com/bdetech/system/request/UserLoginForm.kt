@@ -1,4 +1,4 @@
-package com.bdetech.system.forms
+package com.bdetech.system.request
 
 class UserLoginForm(
         val login : String,

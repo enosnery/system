@@ -1,6 +1,6 @@
 package com.bdetech.system.controllers
 
-import com.bdetech.system.forms.UserLoginForm
+import com.bdetech.system.request.UserLoginForm
 import com.bdetech.system.services.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 class LoginController @Autowired constructor(val userService: UserService) {
 
     @PostMapping("/login")
-    fun login(@RequestBody form : UserLoginForm) : Int {
+    fun login(@RequestBody form : UserLoginForm) : Any? {
         return userService.login(form.login, form.login )
     }
 }
