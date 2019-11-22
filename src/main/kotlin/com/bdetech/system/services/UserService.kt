@@ -5,11 +5,18 @@ import com.bdetech.system.repositories.UserRepository
 import com.bdetech.system.response.UserResponseForm
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class UserService @Autowired constructor (val userRepository: UserRepository){
     fun login(login : String, password : String): UserResponseForm {
-        return UserResponseForm(userRepository.findByLoginAndPassword(login, password))
+        val temp = userRepository.findByLoginAndPassword(login, password)
+        if(temp != null){
+            temp.token = UUID.randomUUID().toString()
+            userRepository.save(temp)
+        }
+
+        return UserResponseForm(temp)
     }
 
     fun list() : List<User>{

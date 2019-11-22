@@ -6,7 +6,8 @@ import com.bdetech.system.models.User
 class UserResponseForm(
         val id : Long?,
         val name : String?,
-        val type: UserType?
+        val type: UserType?,
+        var token: String?
 ){
-    constructor(user: User?): this(user?.id,user?.login, user?.type )
+    constructor(user: User?): this(user?.id,user?.login, user?.type, user?.token )
 }

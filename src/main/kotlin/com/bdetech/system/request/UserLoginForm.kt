@@ -1,6 +1,6 @@
 package com.bdetech.system.request
 
 class UserLoginForm(
-        val login : String,
+        val username : String,
         val password: String
 )

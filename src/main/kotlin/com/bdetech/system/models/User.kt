@@ -1,6 +1,7 @@
 package com.bdetech.system.models
 
 import com.bdetech.system.enumerates.UserType
+import java.util.*
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
@@ -11,6 +12,7 @@ class User(
         var login : String = "",
         var password: String = "",
         var type : UserType = UserType.BASIC,
-        var email: String = ""
+        var email: String = "",
+        var token: String = ""
 
         )
