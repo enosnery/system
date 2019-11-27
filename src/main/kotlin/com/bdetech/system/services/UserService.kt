@@ -10,6 +10,8 @@ import java.util.*
 @Service
 class UserService @Autowired constructor (val userRepository: UserRepository){
     fun login(login : String, password : String): UserResponseForm {
+        println(login)
+        println(password)
         val temp = userRepository.findByLoginAndPassword(login, password)
         if(temp != null){
             temp.token = UUID.randomUUID().toString()

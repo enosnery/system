@@ -10,6 +10,7 @@ import javax.persistence.Id
 class User(
         @Id @GeneratedValue val id : Long? = null,
         var login : String = "",
+        var name : String = "",
         var password: String = "",
         var type : UserType = UserType.BASIC,
         var email: String = "",

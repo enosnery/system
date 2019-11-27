@@ -9,5 +9,5 @@ class UserResponseForm(
         val type: UserType?,
         var token: String?
 ){
-    constructor(user: User?): this(user?.id,user?.login, user?.type, user?.token )
+    constructor(user: User?): this(user?.id,user?.name, user?.type, user?.token )
 }

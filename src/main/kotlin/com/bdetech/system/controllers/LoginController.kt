@@ -12,7 +12,7 @@ class LoginController @Autowired constructor(val userService: UserService) {
 
     @PostMapping("/login")
     fun login(@RequestBody form : UserLoginForm) : HashMap<String, Any> {
-        val user = userService.login(form.username, form.username )
+        val user = userService.login(form.username, form.password )
         val response = HashMap<String, Any>()
         if(user.id == null){
             response[Constants.CODE] = Constants.REQUEST_FAILURE
