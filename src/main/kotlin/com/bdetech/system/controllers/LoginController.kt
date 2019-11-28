@@ -17,11 +17,10 @@ class LoginController @Autowired constructor(val userService: UserService) {
         if(user.id == null){
             response[Constants.CODE] = Constants.REQUEST_FAILURE
             response[Constants.MESSAGE] = "O usuário ou senha estão incorretos"
-            return response
         }else{
             response[Constants.CODE] = Constants.REQUEST_SUCCESS
             response[Constants.RESPONSE_USER_DATA] = user
-            return response
         }
+        return response
     }
 }
