@@ -22,4 +22,14 @@ class UserService @Autowired constructor (val userRepository: UserRepository){
     fun list() : List<User>{
         return userRepository.findAll();
     }
+
+    fun authorize(token: String): Boolean{
+        println(token)
+        var authorized = false
+        val temp = userRepository.findByToken(token);
+        if(temp != null){
+            authorized = true
+        }
+        return authorized
+    }
 }

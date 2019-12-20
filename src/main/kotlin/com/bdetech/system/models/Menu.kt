@@ -1,4 +1,13 @@
 package com.bdetech.system.models
 
-class Menu {
-}
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+
+@Entity(name = "menu_items")
+class Menu (
+        @Id @GeneratedValue var id : Long? = null,
+        var title: String = "",
+        var imagem: String = "",
+        var content: String = ""
+)
