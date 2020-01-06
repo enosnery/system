@@ -24,7 +24,6 @@ class UserService @Autowired constructor (val userRepository: UserRepository){
     }
 
     fun authorize(token: String): Boolean{
-        println(token)
         var authorized = false
         val temp = userRepository.findByToken(token);
         if(temp != null){

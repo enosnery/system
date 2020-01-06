@@ -24,7 +24,6 @@ class MenuController @Autowired constructor(private val menuService: MenuService
             response.put(Constants.CODE, Constants.REQUEST_FAILURE)
             response.put(Constants.MESSAGE, "Nenhum item no menu")
         }
-        println(response)
         return response
     }
 }
