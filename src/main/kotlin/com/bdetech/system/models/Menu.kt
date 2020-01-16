@@ -4,7 +4,7 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
-@Entity(name = "menu_items")
+@Entity(name = "tb_menu_items")
 class Menu (
         @Id @GeneratedValue var id : Long? = null,
         var title: String = "",
