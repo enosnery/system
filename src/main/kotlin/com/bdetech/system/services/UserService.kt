@@ -52,4 +52,8 @@ class UserService @Autowired constructor (val userRepository: UserRepository){
         }
         return response
     }
+
+    fun getById(id : Long): User {
+        return userRepository.findById(id).get();
+    }
 }

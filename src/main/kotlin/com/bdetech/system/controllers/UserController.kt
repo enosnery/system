@@ -12,8 +12,8 @@ class UserController @Autowired constructor(val userService: UserService){
 
     @GetMapping("/users/list")
     fun list(): HashMap<String, Any> {
-        var response = HashMap<String, Any>()
-        var users = userService.list()
+        val response = HashMap<String, Any>()
+        val users = userService.list()
         response["code"] = Constants.REQUEST_SUCCESS
         response["users"] = users
         return response
@@ -21,10 +21,19 @@ class UserController @Autowired constructor(val userService: UserService){
 
     @PostMapping("/users/add")
     fun addNew(@RequestBody form: AddUserForm): HashMap<String, Any> {
-        var response = HashMap<String, Any>()
-        var responseBody = userService.addNew(form)
+        val response = HashMap<String, Any>()
+        val responseBody = userService.addNew(form)
         response["response"] = responseBody
         return response
 
+    }
+
+    @GetMapping("/users/getUser")
+    fun getById(@RequestParam id: Long): HashMap<String, Any> {
+        val response = HashMap<String, Any>()
+        val responseBody = userService.getById(id);
+        response["code"] = Constants.REQUEST_SUCCESS
+        response["userDetail"] = responseBody
+        return response
     }
 }
