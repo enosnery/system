@@ -54,6 +54,23 @@ class UserService @Autowired constructor (val userRepository: UserRepository){
     }
 
     fun getById(id : Long): User {
-        return userRepository.findById(id).get();
+        return userRepository.findById(id).get()
+    }
+
+    fun updateUser(user : User): User? {
+        return null
+    }
+
+    fun deleteById(id : Long): String {
+        var response = ""
+        try{
+
+            userRepository.deleteById(id)
+            response = "Usuário removido com sucesso!"
+        }catch (e : Exception){
+            response = "Erro ao remover usuário."
+        }
+
+        return response
     }
 }

@@ -36,4 +36,13 @@ class UserController @Autowired constructor(val userService: UserService){
         response["userDetail"] = responseBody
         return response
     }
+
+    @DeleteMapping("/users/deleteUser")
+    fun deleteById(@RequestParam id: Long): HashMap<String, Any> {
+        val response = HashMap<String, Any>()
+        val responseBody = userService.deleteById(id);
+        response["code"] = Constants.REQUEST_SUCCESS
+        response["message"] = responseBody
+        return response
+    }
 }
