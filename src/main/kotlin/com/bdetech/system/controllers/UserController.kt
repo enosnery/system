@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class UserController @Autowired constructor(val userService: UserService){
 
-    @GetMapping("/users/list")
+    @GetMapping("/user")
     fun list(): HashMap<String, Any> {
         val response = HashMap<String, Any>()
         val users = userService.list()
@@ -19,7 +19,7 @@ class UserController @Autowired constructor(val userService: UserService){
         return response
     }
 
-    @PostMapping("/users/add")
+    @PostMapping("/user")
     fun addNew(@RequestBody form: AddUserForm): HashMap<String, Any> {
         val response = HashMap<String, Any>()
         val responseBody = userService.addNew(form)
@@ -28,8 +28,8 @@ class UserController @Autowired constructor(val userService: UserService){
 
     }
 
-    @GetMapping("/users/getUser")
-    fun getById(@RequestParam id: Long): HashMap<String, Any> {
+    @GetMapping("/user/{id}")
+    fun getById(@PathVariable id: Long): HashMap<String, Any> {
         val response = HashMap<String, Any>()
         val responseBody = userService.getById(id);
         response["code"] = Constants.REQUEST_SUCCESS
@@ -37,8 +37,8 @@ class UserController @Autowired constructor(val userService: UserService){
         return response
     }
 
-    @DeleteMapping("/users/deleteUser")
-    fun deleteById(@RequestParam id: Long): HashMap<String, Any> {
+    @DeleteMapping("/user/{id}")
+    fun deleteById(@PathVariable id: Long): HashMap<String, Any> {
         val response = HashMap<String, Any>()
         val responseBody = userService.deleteById(id);
         response["code"] = Constants.REQUEST_SUCCESS
