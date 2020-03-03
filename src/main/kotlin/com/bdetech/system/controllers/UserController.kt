@@ -28,6 +28,15 @@ class UserController @Autowired constructor(val userService: UserService){
 
     }
 
+    @PatchMapping("/user")
+    fun updateUser(@RequestBody form: AddUserForm): HashMap<String, Any> {
+        val response = HashMap<String, Any>()
+        val responseBody = userService.addNew(form)
+        response["response"] = responseBody
+        return response
+
+    }
+
     @GetMapping("/user/{id}")
     fun getById(@PathVariable id: Long): HashMap<String, Any> {
         val response = HashMap<String, Any>()
